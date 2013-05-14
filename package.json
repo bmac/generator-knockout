@@ -1,0 +1,37 @@
+{
+  "name": "generator-knockout",
+  "version": "0.0.0",
+  "description": "A generator for Yeoman",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "homepage": "https://github.com/bmac/generator-knockout",
+  "bugs": "https://github.com/bmac/generator-knockout/issues",
+  "author": {
+    "name": "bmac",
+    "email": "user@example.net",
+    "url": "https://github.com/bmac"
+  },
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bmac/generator-knockout.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "yeoman-generator": "~0.10.2"
+  },
+  "devDependencies": {
+    "mocha": "~1.9.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}
