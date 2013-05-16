@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "A generator for Yeoman",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "knockout"
   ],
   "homepage": "https://github.com/bmac/generator-knockout",
   "bugs": "https://github.com/bmac/generator-knockout/issues",
