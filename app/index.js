@@ -7,6 +7,8 @@ var yeoman = require('yeoman-generator');
 var KnockoutGenerator = module.exports = function KnockoutGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
+  this.options = options || {};
+
   this.on('end', function () {
     this.installDependencies({ skipInstall: options['skip-install'] });
   });
@@ -17,6 +19,7 @@ var KnockoutGenerator = module.exports = function KnockoutGenerator(args, option
 util.inherits(KnockoutGenerator, yeoman.generators.NamedBase);
 
 KnockoutGenerator.prototype.askFor = function askFor() {
+
   var cb = this.async();
 
   // welcome message
@@ -32,12 +35,23 @@ KnockoutGenerator.prototype.askFor = function askFor() {
   '\n ´   ' + '`  |'.red + '° ' + '´ Y'.red + ' `\n';
 
   console.log(welcome);
+  console.log('This comes with knockout.js, requirejs, jquery, and grunt all ready to go');
+
+  if (this.options.promptDefaults) {
+     this.appname = this.options.promptDefaults.appname;
+     this.appdescription = this.options.promptDefaults.appdescription;
+     cb();
+     return;
+   }
 
   var prompts = [{
-    name: 'someOption',
-    message: 'Would you like to enable this option?',
-    default: 'Y/n',
-    warning: 'Yes: Enabling this will be totally awesome!'
+    name: 'appname',
+    message: 'What is the name of your app?',
+    default: this.appname
+  }, {
+    name: 'appdescription',
+    message: 'Description:',
+    default: 'An awesome knockout.js app'
   }];
 
   this.prompt(prompts, function (err, props) {
@@ -45,21 +59,42 @@ KnockoutGenerator.prototype.askFor = function askFor() {
       return this.emit('error', err);
     }
 
-    this.someOption = (/y/i).test(props.someOption);
+    this.appname = props.appname;
+    this.appdescription = props.appdescription;
+
 
     cb();
   }.bind(this));
 };
 
-KnockoutGenerator.prototype.app = function app() {
-  this.mkdir('app');
-  this.mkdir('app/templates');
-
-  this.copy('_package.json', 'package.json');
-  this.copy('_component.json', 'component.json');
+KnockoutGenerator.prototype.gruntfile = function gruntfile() {
+  this.template('Gruntfile.js');
 };
 
-KnockoutGenerator.prototype.projectfiles = function projectfiles() {
-  this.copy('editorconfig', '.editorconfig');
+KnockoutGenerator.prototype.packageJSON = function packageJSON() {
+  this.template('_package.json', 'package.json');
+};
+
+KnockoutGenerator.prototype.bower = function bower() {
+  this.template('_bower.json', 'bower.json');
+};
+
+KnockoutGenerator.prototype.git = function git() {
+  this.copy('gitignore', '.gitignore');
+};
+
+KnockoutGenerator.prototype.configs = function jshint() {
   this.copy('jshintrc', '.jshintrc');
+  this.copy('editorconfig', '.editorconfig');
+}
+
+KnockoutGenerator.prototype.docs = function docs() {
+  this.copy('CONTRIBUTING.md', 'CONTRIBUTING.md');
+  this.template('README.md', 'README.md');
+};
+
+KnockoutGenerator.prototype.app = function app() {
+  this.directory('app', 'app');
+  this.directory('test', 'test');
+  this.template('index.htm', 'index.htm');
 };

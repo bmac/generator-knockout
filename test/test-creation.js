@@ -27,7 +27,8 @@ describe('knockout generator', function () {
     ];
 
     helpers.mockPrompt(this.app, {
-      'someOption': 'Y'
+      'appname': 'test',
+      'appdescription': 'an app'
     });
 
     this.app.run({}, function () {
