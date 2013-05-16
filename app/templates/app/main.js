@@ -3,6 +3,7 @@
 
 define(["jquery", "knockout"], function($, ko) {
   var viewModel = {
-
+      
   };
+  ko.applyBindings(viewModel, $('html')[0]);
 });

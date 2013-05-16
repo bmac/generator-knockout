@@ -4,15 +4,11 @@ require.config({
   paths: {
     "components": "../components",
     "jquery": "../components/jquery/jquery",
-    "knockout": "../components/knockout/knockout"
+    "knockout": "../components/knockout/build/output/knockout-latest"
   }
 });
 
 if (!window.requireTestMode) {
   require(['main'], function(){ });
 }
-
-
-
-
 
