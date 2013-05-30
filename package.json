@@ -1,7 +1,7 @@
 {
   "name": "generator-knockout",
-  "version": "0.0.0",
-  "description": "A generator for Yeoman",
+  "version": "0.2.0",
+  "description": "A knockout generator for Yeoman",
   "keywords": [
     "yeoman-generator",
     "knockout"
