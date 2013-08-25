@@ -16,26 +16,17 @@ var KnockoutGenerator = module.exports = function KnockoutGenerator(args, option
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
-util.inherits(KnockoutGenerator, yeoman.generators.NamedBase);
+util.inherits(KnockoutGenerator, yeoman.generators.Base);
+
+KnockoutGenerator.prototype.welcome = function welcome() {
+  // welcome message
+  console.log(this.yeoman);
+  console.log('This comes with knockout.js, requirejs, jquery, and grunt all ready to go');
+};
 
 KnockoutGenerator.prototype.askFor = function askFor() {
 
   var cb = this.async();
-
-  // welcome message
-  var welcome =
-  '\n     _-----_' +
-  '\n    |       |' +
-  '\n    |' + '--(o)--'.red + '|   .--------------------------.' +
-  '\n   `---------´  |    ' + 'Welcome to Yeoman,'.yellow.bold + '    |' +
-  '\n    ' + '( '.yellow + '_' + '´U`'.yellow + '_' + ' )'.yellow + '   |   ' + 'ladies and gentlemen!'.yellow.bold + '  |' +
-  '\n    /___A___\\   \'__________________________\'' +
-  '\n     |  ~  |'.yellow +
-  '\n   __' + '\'.___.\''.yellow + '__' +
-  '\n ´   ' + '`  |'.red + '° ' + '´ Y'.red + ' `\n';
-
-  console.log(welcome);
-  console.log('This comes with knockout.js, requirejs, jquery, and grunt all ready to go');
 
   if (this.options.promptDefaults) {
      this.appname = this.options.promptDefaults.appname;
@@ -54,13 +45,10 @@ KnockoutGenerator.prototype.askFor = function askFor() {
     default: 'An awesome knockout.js app'
   }];
 
-  this.prompt(prompts, function (err, props) {
-    if (err) {
-      return this.emit('error', err);
-    }
+  this.prompt(prompts, function (answers) {
 
-    this.appname = props.appname;
-    this.appdescription = props.appdescription;
+    this.appname = answers.appname;
+    this.appdescription = answers.appdescription;
 
 
     cb();
