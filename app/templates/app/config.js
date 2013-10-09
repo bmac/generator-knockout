@@ -1,10 +1,10 @@
 require.config({
-  // make components more sensible
+  // make bower_components more sensible
   // expose jquery 
   paths: {
-    "components": "../components",
-    "jquery": "../components/jquery/jquery",
-    "knockout": "../components/knockout/build/output/knockout-latest"
+    "bower_components": "../bower_components",
+    "jquery": "../bower_components/jquery/jquery",
+    "knockout": "../bower_components/knockout/build/output/knockout-latest"
   }
 });
 
@@ -13,7 +13,7 @@ require.config({
 // require.config({}) found in this file
 require.config({
   paths: {
-    "knockout": "../components/knockout/build/output/knockout-latest.debug"
+    "knockout": "../bower_components/knockout/build/output/knockout-latest.debug"
   }
 });
 
