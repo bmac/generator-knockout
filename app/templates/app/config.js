@@ -4,7 +4,7 @@ require.config({
   paths: {
     "bower_components": "../bower_components",
     "jquery": "../bower_components/jquery/jquery",
-    "knockout": "../bower_components/knockout/build/output/knockout-latest"
+    "knockout": "../bower_components/knockout.js"
   }
 });
 
@@ -13,7 +13,7 @@ require.config({
 // require.config({}) found in this file
 require.config({
   paths: {
-    "knockout": "../bower_components/knockout/build/output/knockout-latest.debug"
+    "knockout": "../bower_components/knockout.js/knockout-2.3.0.debug"
   }
 });
 
