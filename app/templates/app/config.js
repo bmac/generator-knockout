@@ -4,7 +4,7 @@ require.config({
   paths: {
     "bower_components": "../bower_components",
     "jquery": "../bower_components/jquery/jquery",
-    "knockout": "../bower_components/knockout.js"
+    "knockout": "../bower_components/knockout.js/knockout"
   }
 });
 
