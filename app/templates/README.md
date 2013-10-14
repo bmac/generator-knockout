@@ -23,7 +23,7 @@ build and run this app, such as [grunt](http://gruntjs.com),
 
 You can run your app using `grunt preview`. This will start a
 server on `localhost:8000`, meaning you can simply go to the
-url [localhost:8000/index.htm](http://localhost:8000/index.htm)
+url [localhost:8000/index.html](http://localhost:8000/index.html)
 while it's running.
 
 If you'd like to run the compiled version, run
@@ -43,7 +43,7 @@ creating `/dist/require.js`.
 ## Working with the scaffolded app
 
 There's just enough to in place to get you going. Go ahead
-and make your changes to `index.htm`. You'll start your
+and make your changes to `index.html`. You'll start your
 javascript work in `app/main.js` by requiring your first
 modules. Past that, well, the world is your oyster.
 

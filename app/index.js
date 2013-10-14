@@ -84,5 +84,5 @@ KnockoutGenerator.prototype.docs = function docs() {
 KnockoutGenerator.prototype.app = function app() {
   this.directory('app', 'app');
   this.directory('test', 'test');
-  this.template('index.htm', 'index.htm');
+  this.template('index.html', 'index.html');
 };
