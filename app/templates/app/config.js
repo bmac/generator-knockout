@@ -3,8 +3,13 @@ require.config({
   // expose jquery 
   paths: {
     "bower_components": "../bower_components",
-    "jquery": "../bower_components/jquery/jquery",
-    "knockout": "../bower_components/knockout.js/knockout"
+    "jquery": "../bower_components/jquery/jquery"
+  },
+  map: {
+    "*": {
+      "knockout": "../bower_components/knockout.js/knockout",
+      "ko": "../bower_components/knockout.js/knockout"
+    }
   }
 });
 
@@ -12,8 +17,11 @@ require.config({
 // When compiling with grunt require js will only look at the first 
 // require.config({}) found in this file
 require.config({
-  paths: {
-    "knockout": "../bower_components/knockout.js/knockout-2.3.0.debug"
+  map: {
+    "*": {
+      "knockout": "../bower_components/knockout.js/knockout-2.3.0.debug",
+      "ko": "../bower_components/knockout.js/knockout-2.3.0.debug"
+    }
   }
 });
 
